@@ -1,0 +1,80 @@
+<resources>
+    <string name="app_name">Hello</string>
+    <string name="title_activity_maps">Map</string>
+
+    <string name="phoneNumber">Number (eg 777777777)</string>
+    <string name="number">Phone Number</string>
+    <string name="login">SIGN IN</string>
+    <string name="in">Kindly sign in</string>
+    <string name="cred">Kindly enter Your info</string>
+    <string name="code">Kindly enter the verification code</string>
+    <string name="ser">Kindly add Service Info</string>
+    <string name="or">Kindly add organization info</string>
+    <string name="noteS">Kindly note that Your submission will be reviewed before its made public on the app. </string>
+    <string name="next">Next</string>
+    <string name="no">12345.</string>
+    <string name="verification">A verification code has been sent to Your phone, Please type it here to continue;</string>
+    <string name="wat">What are You looking for</string>
+    <string name="searchS">Search for a service</string>
+    <string name="search">Search for an organization</string>
+
+    <string name="rec">Request Successful </string>
+    <string name="fail">Request Failed</string>
+    <string name="ok">OK</string>
+    <string name="miss">Please enter all field details to continue</string>
+    <string name="exist">Sorry, service already exists</string>
+
+    <string name="empty">Service coming Soon</string>
+    <string name="emptyO">No organization details yet. Coming Soon</string>
+
+    <string name="addS">Add a service</string>
+    <string name="addO">Add an organization</string>
+    <string name="orName">Organization Name</string>
+    <string name="orDes">Organization Description</string>
+    <string name="orContact">Organization Contact</string>
+    <string name="orEmail">Organization Email</string>
+    <string name="orLocation">Organization Location</string>
+    <string name="orStatus">Registration Status</string>
+
+
+    <string name="first">First Name</string>
+    <string name="last">Last Name</string>
+    <string name="create">Create Account</string>
+    <string name="email">Email</string>
+
+    <string name="pick">Pick Up</string>
+    <string name="pay">Payments</string>
+    <string name="orders">Orders</string>
+    <string name="account">Account</string>
+    <string name="gender">Gender</string>
+    <string name="pickUp">Select the waste pick up location</string>
+    <string name="current">Current location</string>
+
+    <string name="amount">Enter Amount</string>
+
+    <string name="noLocation">No Location specified</string>
+    <string name="bags">Number of bags/containers</string>
+    <string name="type">Type of waste</string>
+    <string name="quantity">Quantity of waste</string>
+    <string name="pic">Take Pic</string>
+    <string name="location">Location</string>
+    <string name="category">Waste category</string>
+    <string name="transport">Select transport method</string>
+    <string name="check">Check Out</string>
+    <string name="cash">Cash (UGX)</string>
+    <string name="cashless">Cashless (UGX)</string>
+    <string name="ugx">6000–5000</string>
+
+    <string name="finish">Finish</string>
+    <string name="prog">Thank You for using Zero Waste. Your order is in progress; You are to be contacted shortly</string>
+
+    <string name="top">Top Up Your Zero Waste account</string>
+
+
+    <string name="logout">Log Out</string>
+    <string name="communicate">Communications</string>
+    <string name="payment">Payment methods</string>
+    <string name="help">Help</string>
+    <string name="about">About Us</string>
+    <string name="title_activity_maps2">Map</string>
+</resources>
