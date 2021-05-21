@@ -7,4 +7,5 @@ import kotlinx.serialization.Serializable
 data class AddServiceEntity (
     @SerialName("status")
     var status:Boolean
+
 )

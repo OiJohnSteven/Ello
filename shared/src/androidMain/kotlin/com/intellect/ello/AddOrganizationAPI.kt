@@ -1,5 +1,8 @@
-package com.intellect.ello.network
+package com.intellect.ello
 
+import android.graphics.Bitmap
+import android.net.Uri
+import android.provider.MediaStore
 import com.intellect.ello.model.AddOrganizationEntity
 import io.ktor.client.*
 import io.ktor.client.call.*
@@ -7,9 +10,10 @@ import io.ktor.client.features.json.*
 import io.ktor.client.features.json.serializer.*
 import io.ktor.client.request.*
 import io.ktor.client.request.forms.*
-import io.ktor.client.statement.*
 import io.ktor.http.*
 import kotlinx.serialization.decodeFromString
+import java.io.File
+import java.net.URI
 
 
 class AddOrganizationAPI {
@@ -28,25 +32,29 @@ class AddOrganizationAPI {
     }
 
     suspend fun upload(file:String, name: String): AddOrganizationEntity{
+
+
         var x: AddOrganizationEntity?= null
 
         try {
+
             x = client.submitFormWithBinaryData(
-                AddOrganizationAPI.uploadURL,
+                uploadURL,
                 formData {
-                    append("image", file)
-                    //, Headers.build {
-                        //append(HttpHeaders.ContentType, fileMimeType)
-                      //  append(HttpHeaders.ContentDisposition, ContentDisposition.File.withParameter(ContentDisposition.Parameters.FileName, name))
-                    //})
+                    append("image", File(URI("file:///$name")).readBytes())
+//                    , Headers.build {
+//                        append(HttpHeaders.ContentType, "image/png")
+//                        append(HttpHeaders.ContentDisposition,  "filename=$name")
+//                    })
                 }
             )
 
+
         } catch (e: NoTransformationFoundException){
             val y:String = client.submitFormWithBinaryData(
-                AddOrganizationAPI.uploadURL,
+                uploadURL,
                 formData {
-                    append("image", file)
+                    append("image", File(URI("file:///$name")).readBytes())
                     //, Headers.build {
                         //append(HttpHeaders.ContentType, fileMimeType)
                       //  append(HttpHeaders.ContentDisposition, ContentDisposition.File.withParameter(ContentDisposition.Parameters.FileName, name))

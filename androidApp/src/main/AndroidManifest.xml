@@ -3,6 +3,7 @@
     package="com.intellect.ello.android">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <application
         android:allowBackup="false"
         android:icon="@drawable/loo"

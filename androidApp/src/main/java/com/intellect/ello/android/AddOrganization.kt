@@ -1,7 +1,6 @@
 package com.intellect.ello.android
 
 import android.Manifest
-import android.R.attr
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -19,11 +18,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
-import com.intellect.ello.network.AddOrganizationAPI
+import com.intellect.ello.AddOrganizationAPI
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import java.io.ByteArrayOutputStream
-import java.io.File
 import java.net.URLEncoder
 
 
@@ -79,9 +77,9 @@ class AddOrganization : AppCompatActivity() {
             scope.launch {
                 val response = AddOrganizationAPI()
 
-                Log.d("result", "${response.upload(URLEncoder.encode(getImagePath(image_uri)!!, "UTF-8"),  getImagePath(image_uri)!!)}")
+                Log.d("result", "${response.upload(getImagePath(image_uri)!!,  getImagePath(image_uri)!!)}")
 
-                Toast.makeText(this@AddOrganization, "${response.upload(URLEncoder.encode(getImagePath(image_uri)!!, "UTF-8"),  getImagePath(image_uri)!!)}", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@AddOrganization, "${response.upload(getImagePath(image_uri)!!,  getImagePath(image_uri)!!)}", Toast.LENGTH_LONG).show()
 
 //                val response = AddOrganizationAPI()
 //
