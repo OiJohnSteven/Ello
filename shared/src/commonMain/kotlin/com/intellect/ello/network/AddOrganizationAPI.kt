@@ -24,6 +24,40 @@ class AddOrganizationAPI {
 
     companion object{
         val AddOrganizationURL = "https://techsoln.000webhostapp.com/ello/insertOrganization.php"
+        val uploadURL = "https://techsoln.000webhostapp.com/ello/upload.php"
+    }
+
+    suspend fun upload(file:String, name: String): AddOrganizationEntity{
+        var x: AddOrganizationEntity?= null
+
+        try {
+            x = client.submitFormWithBinaryData(
+                AddOrganizationAPI.uploadURL,
+                formData {
+                    append("image", file)
+                    //, Headers.build {
+                        //append(HttpHeaders.ContentType, fileMimeType)
+                      //  append(HttpHeaders.ContentDisposition, ContentDisposition.File.withParameter(ContentDisposition.Parameters.FileName, name))
+                    //})
+                }
+            )
+
+        } catch (e: NoTransformationFoundException){
+            val y:String = client.submitFormWithBinaryData(
+                AddOrganizationAPI.uploadURL,
+                formData {
+                    append("image", file)
+                    //, Headers.build {
+                        //append(HttpHeaders.ContentType, fileMimeType)
+                      //  append(HttpHeaders.ContentDisposition, ContentDisposition.File.withParameter(ContentDisposition.Parameters.FileName, name))
+                    //})
+                }
+            )
+            val json = kotlinx.serialization.json.Json { ignoreUnknownKeys = true }
+            x = json.decodeFromString(y)
+        }
+
+        return x!!
     }
 
 

@@ -71,18 +71,24 @@ class AddOrganization : AppCompatActivity() {
 
            // val image = ImageIO.read(File(""))
 
-        if (orName.isEmpty() || orDesc.isEmpty() || orContact.isEmpty() || orEmail.isEmpty() || orLocation.isEmpty() || orStatus.isEmpty() || image_uri == null) {
-
-            Toast.makeText(this, "Enter all details", Toast.LENGTH_LONG).show()
-            return@setOnClickListener
-        }
+//        if (orName.isEmpty() || orDesc.isEmpty() || orContact.isEmpty() || orEmail.isEmpty() || orLocation.isEmpty() || orStatus.isEmpty() || image_uri == null) {
+//
+//            Toast.makeText(this, "Enter all details", Toast.LENGTH_LONG).show()
+//            return@setOnClickListener
+//        }
             scope.launch {
                 val response = AddOrganizationAPI()
 
-                Log.d("result", "${response.addOrganization(1, orName,orDesc, orContact, orEmail, orLocation, URLEncoder.encode(ConvertImage, "UTF-8"),  orStatus)}")
+                Log.d("result", "${response.upload(URLEncoder.encode(getImagePath(image_uri)!!, "UTF-8"),  getImagePath(image_uri)!!)}")
 
-                Log.d("res", orName + orDesc + orContact + orEmail + orLocation + URLEncoder.encode(ConvertImage, "UTF-8") + orStatus)
-                //Toast.makeText(this@AddOrganization,
+                Toast.makeText(this@AddOrganization, "${response.upload(URLEncoder.encode(getImagePath(image_uri)!!, "UTF-8"),  getImagePath(image_uri)!!)}", Toast.LENGTH_LONG).show()
+
+//                val response = AddOrganizationAPI()
+//
+//                Log.d("result", "${response.addOrganization(1, orName,orDesc, orContact, orEmail, orLocation, URLEncoder.encode(ConvertImage, "UTF-8"),  orStatus)}")
+//
+//                Log.d("res", orName + orDesc + orContact + orEmail + orLocation + URLEncoder.encode(ConvertImage, "UTF-8") + orStatus)
+//                //Toast.makeText(this@AddOrganization,
                     //"${response.addOrganization(1, orName,orDesc, orContact, orEmail, orLocation, URLEncoder.encode(ConvertImage, "UTF-8"), orStatus)}", Toast.LENGTH_LONG).show()
             }
 
