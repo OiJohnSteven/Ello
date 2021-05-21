@@ -6,10 +6,12 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.intellect.ello.model.OrganizationEntity
 
 class OrganizationAdapter(var organizationEntity: ArrayList<OrganizationEntity>, var context: Context):RecyclerView.Adapter<OrganizationAdapter.ViewHolder>() {
@@ -19,10 +21,12 @@ class OrganizationAdapter(var organizationEntity: ArrayList<OrganizationEntity>,
             val name = itemView.findViewById<TextView>(R.id.orName)
             val desc = itemView.findViewById<TextView>(R.id.orDesc)
             val status = itemView.findViewById<TextView>(R.id.orStatus)
+            val logo = itemView.findViewById<ImageView>(R.id.logo)
 
             name.text  = organizationEntity.name
             desc.text = organizationEntity.description
             status.text = organizationEntity.status
+            Glide.with(context).load("https://techsoln.000webhostapp.com/ello/image/${organizationEntity.imUrl}").into(logo)
 
             val orName = organizationEntity.name
             val orDes = organizationEntity.description
@@ -33,6 +37,7 @@ class OrganizationAdapter(var organizationEntity: ArrayList<OrganizationEntity>,
 
             val card= itemView.findViewById<CardView>(R.id.orCard)
             card.setOnClickListener {
+
                 val intent = Intent(context, OrganizationDetails::class.java)
 
                 intent.putExtra("orName", orName)
@@ -41,6 +46,7 @@ class OrganizationAdapter(var organizationEntity: ArrayList<OrganizationEntity>,
                 intent.putExtra("orEmail", orEmail)
                 intent.putExtra("orLocation", orLocation)
                 intent.putExtra("orStatus",orStatus)
+                intent.putExtra("orUrl", organizationEntity.imUrl)
 
                 context.startActivity(intent)
             }

@@ -21,4 +21,6 @@ data class OrganizationEntity (
     var description:String,
     @SerialName("status")
     var status:String,
+    @SerialName("imUrl")
+    var imUrl:String,
 )

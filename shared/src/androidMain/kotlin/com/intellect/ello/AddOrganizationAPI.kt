@@ -38,32 +38,38 @@ class AddOrganizationAPI {
 
         try {
 
-            x = client.submitFormWithBinaryData(
-                uploadURL,
-                formData {
-                    append("image", File(URI("file:///$name")).readBytes())
+            x = client.post(uploadURL){
+                client.submitFormWithBinaryData(
+                    uploadURL,
+                    formData {
+                        append("image", File(URI("file:///$name")).readBytes())
+                        append("imageUrl", file)
 //                    , Headers.build {
 //                        append(HttpHeaders.ContentType, "image/png")
 //                        append(HttpHeaders.ContentDisposition,  "filename=$name")
 //                    })
-                }
-            )
+                    }
+                )
+            }
 
 
         } catch (e: NoTransformationFoundException){
-            val y:String = client.submitFormWithBinaryData(
-                uploadURL,
-                formData {
-                    append("image", File(URI("file:///$name")).readBytes())
-                    //, Headers.build {
+            val y:String = client.post(uploadURL) {
+                client.submitFormWithBinaryData(
+                    uploadURL,
+                    formData {
+                        append("image", File(URI("file:///$name")).readBytes())
+                        append("imageUrl", file)
+                        //, Headers.build {
                         //append(HttpHeaders.ContentType, fileMimeType)
-                      //  append(HttpHeaders.ContentDisposition, ContentDisposition.File.withParameter(ContentDisposition.Parameters.FileName, name))
-                    //})
-                }
-            )
-            val json = kotlinx.serialization.json.Json { ignoreUnknownKeys = true }
-            x = json.decodeFromString(y)
-        }
+                        //  append(HttpHeaders.ContentDisposition, ContentDisposition.File.withParameter(ContentDisposition.Parameters.FileName, name))
+                        //})
+                    }
+                )
+            }
+                val json = kotlinx.serialization.json.Json { ignoreUnknownKeys = true }
+                x = json.decodeFromString(y)
+            }
 
         return x!!
     }

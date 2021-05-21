@@ -2,18 +2,20 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.intellect.ello.android">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="false"
-        android:icon="@drawable/loo"
         android:hardwareAccelerated="false"
-        android:largeHeap="true"
+        android:icon="@drawable/loo"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@drawable/loo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddOrganization"></activity>
+        <activity android:name=".Police"></activity>
+        <activity android:name=".AddOrganization" />
         <activity android:name=".AddService" />
         <activity android:name=".OrganizationDetails" />
         <activity android:name=".Organization" />

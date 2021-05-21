@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.ProgressBar
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -79,8 +80,10 @@ class Organization : AppCompatActivity() {
 
         val addO = findViewById<ImageView>(R.id.addO)
         addO.setOnClickListener {
-            val intent = Intent(this, AddOrganization::class.java)
-            startActivity(intent)
+            Toast.makeText(this, "Not yet Available", Toast.LENGTH_LONG).show()
+
+//            val intent = Intent(this, AddOrganization::class.java)
+//            startActivity(intent)
         }
 
 
